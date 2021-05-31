@@ -1,0 +1,9 @@
+{
+	"Callor HTML" : {
+		"prefix" : "c",
+		"body" :[
+			"public void static main(String[] args) {",
+		"descripstion" : "내가만든 자바시작"
+		]
+	}
+}
