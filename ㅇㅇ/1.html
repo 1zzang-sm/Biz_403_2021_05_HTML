@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        height: 100%;
+      }
+
+      body {
+        background-color: #000;
+        perspective: 500px;
+        perspective-origin: 50% 50%;
+      }
+
+      .wrap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border: 1px dashed rgba(255, 255, 255, 0.5);
+        transform-style: preserve-3d;
+        animation: turn 5s linear infinite;
+      }
+
+      .square {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        font-size: 36px;
+        line-height: 98px;
+        color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+      }
+
+      .square:nth-child(1) {
+        transform: rotateY(0deg) translateZ(50px);
+      }
+
+      .square:nth-child(2) {
+        transform: rotateY(180deg) translateZ(50px);
+      }
+
+      .square:nth-child(3) {
+        transform: rotateY(-90deg) translateZ(50px);
+      }
+
+      .square:nth-child(4) {
+        transform: rotateY(90deg) translateZ(50px);
+      }
+
+      .square:nth-child(5) {
+        transform: rotateX(90deg) translateZ(50px);
+      }
+
+      .square:nth-child(6) {
+        transform: rotateX(-90deg) translateZ(50px);
+      }
+
+      @keyframes turn {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="square">앞</div>
+      <div class="square">뒤</div>
+      <div class="square">좌</div>
+      <div class="square">우</div>
+      <div class="square">상</div>
+      <div class="square">하</div>
+    </div>
+  </body>
+</html>
