@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url("로고/background_v1.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      div.title {
+        border-bottom: 3px solid white;
+      }
+
+      .temp {
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .temp span {
+        display: block;
+        background: #fff;
+        width: 42px;
+        height: 4px;
+        border-radius: 3px;
+        transition: 0.25s margin 0.25s, 0.25s transform;
+      }
+      .temp span:nth-child(1) {
+        margin-bottom: 8px;
+      }
+      .temp span:nth-child(3) {
+        margin-top: 8px;
+      }
+      .temp.active span {
+        transition: 0.25s margin, 0.25s transform 0.25s;
+      }
+      .temp.active span:nth-child(1) {
+        margin-top: 8px;
+        margin-bottom: -4px;
+        transform: rotate(45deg);
+      }
+      .temp.active span:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      .temp.active span:nth-child(3) {
+        margin-top: -4px;
+        transform: rotate(135deg);
+      }
+    </style>
+  </head>
+  <script>
+    $(".temp").click(function () {
+      $(this).tempClass("active");
+    });
+  </script>
+  <body>
+    <div clss="main">
+      <div class="title">
+        <img
+          src="로고/logo-white.svg"
+          alt="타이틀"
+          style="display: block; margin: 0 auto; width: 300px; height: 150px"
+        />
+      </div>
+      <div class="temp" style="float: right">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </body>
+</html>
