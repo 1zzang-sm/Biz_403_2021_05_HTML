@@ -4,78 +4,193 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Document</title>
+
     <style>
-      body {
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+      * {
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 2vh;
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        height: 100vh;
-        background-image: url("로고/background_v1.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
       }
-      div.title {
-        border-bottom: 3px solid white;
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        background-image: url("로고/BG-V2_2.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      header {
+        opacity: 1;
+        width: 100%;
+        height: 15%;
+      }
+      div.h_container {
+        height: 100%;
+        padding-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo {
+        width: 15.6%;
+        margin: auto;
+      }
+      #menu {
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        margin-top: 1%;
+        margin-right: 3%;
+        display: flex;
+        flex-direction: column;
+      }
+      #menu span {
+        width: 100%;
+        height: 20%;
+        background-color: white;
+        display: inline-block;
+        right: 0;
+        position: absolute;
+        transition: 0.5s;
+        border-radius: 10px;
+      }
+      #menu span.top {
+        top: 10px;
+      }
+      #menu span.bot {
+        top: 20px;
+      }
+      #menu.active span.top {
+        top: 0;
+        transform: rotate(45deg);
+        transition: 0.5s;
+      }
+      #menu.active span.mid {
+        background-color: transparent;
+      }
+      #menu.active span.bot {
+        top: 0;
+        transform: rotate(-45deg);
+        transition: 0.5s;
       }
 
-      .temp {
+      @media screen and (max-width: 786px) {
+        .logo {
+          width: 35%;
+        }
+        .menu {
+          width: 10%;
+        }
+      }
+      section {
+        width: 100%;
+        height: 85%;
+      }
+      div.insert_bubble {
+        width: 40%;
+        height: 20%;
+        margin: auto;
+        padding: 70px;
+      }
+      div.b_insert {
+        position: relative;
+        width: 100%;
+        height: 800px;
+      }
+      .input input {
+        background-color: transparent;
         position: absolute;
-        display: block;
-        cursor: pointer;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 80px;
+        left: 39%;
+        border: none;
+        width: 465px;
+        height: 170px;
+        z-index: 1;
+        text-align: center;
+        font-size: 24;
+        outline: none;
+        border-bottom: 1px solid gray;
       }
-      .temp span {
-        display: block;
-        background: #fff;
-        width: 42px;
-        height: 4px;
-        border-radius: 3px;
-        transition: 0.25s margin 0.25s, 0.25s transform;
+      .input2 input {
+        background-color: transparent;
+        position: absolute;
+        top: 263px;
+        left: 39%;
+        border: none;
+        width: 390px;
+        height: 50px;
+        z-index: 1;
+        text-align: center;
+        font-size: 24;
+        outline: none;
       }
-      .temp span:nth-child(1) {
-        margin-bottom: 8px;
-      }
-      .temp span:nth-child(3) {
-        margin-top: 8px;
-      }
-      .temp.active span {
-        transition: 0.25s margin, 0.25s transform 0.25s;
-      }
-      .temp.active span:nth-child(1) {
-        margin-top: 8px;
-        margin-bottom: -4px;
-        transform: rotate(45deg);
-      }
-      .temp.active span:nth-child(2) {
-        transform: rotate(45deg);
-      }
-      .temp.active span:nth-child(3) {
-        margin-top: -4px;
-        transform: rotate(135deg);
+      div.insert_people {
+        position: absolute;
+        left: 37%;
+        top: 430px;
+        width: 25%;
+        height: 20%;
+        margin: auto;
+        padding: 1px;
       }
     </style>
   </head>
+  <body>
+    <!-- <div class="wrap"> -->
+    <header>
+      <div class="h_container">
+        <img class="logo" src="로고/logo-original.svg" />
+        <div id="menu">
+          <span class="top"></span>
+          <span class="mid"></span>
+          <span class="bot"></span>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="b_insert">
+        <div class="insert_bubble">
+          <img src="로고/bubble_white.svg" alt="" />
+        </div>
+        <div class="input">
+          <input
+            type="text"
+            placeholder="내용을 입력하세요 단, 내용은 200자 안으로 작성해야합니다"
+          />
+        </div>
+        <div class="input2">
+          <input
+            type="text"
+            placeholder="출처를 입력하세요
+미 입력시 본인 닉네임 자동입력"
+          />
+        </div>
+        <div class="insert_people"><img src="로고/person-01.svg" /></div>
+      </div>
+    </section>
+    <!-- </div> -->
+    <div class="box"></div>
+  </body>
   <script>
-    $(".temp").click(function () {
-      $(this).tempClass("active");
+    let menu = document.getElementById("menu");
+    let flag = false;
+    menu.addEventListener("click", function () {
+      if (!flag) {
+        menu.classList.add("active");
+        flag = true;
+      } else {
+        menu.classList.remove("active");
+        flag = false;
+      }
     });
   </script>
-  <body>
-    <div clss="main">
-      <div class="title">
-        <img
-          src="로고/logo-white.svg"
-          alt="타이틀"
-          style="display: block; margin: 0 auto; width: 300px; height: 150px"
-        />
-      </div>
-      <div class="temp" style="float: right">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </body>
 </html>
