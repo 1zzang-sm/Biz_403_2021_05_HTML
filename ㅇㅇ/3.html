@@ -6,123 +6,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
-                  <!DOCTYPE html>
-      <html lang="ko">
-        <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Document</title>
-
-          <style>
-            @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-
-            * {
-              font-family: "Noto Sans KR", sans-serif;
-              font-size: 2vh;
-              box-sizing: border-box;
-              margin: 0;
-              padding: 0;
-            }
-            html,
-            body {
-              width: 100vw;
-              height: 100vh;
-            }
-            body {
-              background-image: url("로고/BG-V2_2.png");
-              background-repeat: no-repeat;
-              background-attachment: fixed;
-              background-size: 100% 100%;
-            }
-            header {
-              opacity: 1;
-              width: 100%;
-              height: 15%;
-            }
-            div.h_container {
-              height: 100%;
-              padding-top: 15px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-            .logo {
-              width: 15.6%;
-              margin: auto;
-            }
-            #menu {
-              position: absolute;
-              right: 0;
-              width: 30px;
-              height: 30px;
-              margin-top: 1%;
-              margin-right: 3%;
-              display: flex;
-              flex-direction: column;
-            }
-            #menu span {
-              width: 100%;
-              height: 20%;
-              background-color: white;
-              display: inline-block;
-              right: 0;
-              position: absolute;
-              transition: 0.5s;
-              border-radius: 10px;
-            }
-            #menu span.top {
-              top: 10px;
-            }
-            #menu span.bot {
-              top: 20px;
-            }
-            #menu.active span.top {
-              top: 0;
-              transform: rotate(45deg);
-              transition: 0.5s;
-            }
-            #menu.active span.mid {
-              background-color: transparent;
-            }
-            #menu.active span.bot {
-              top: 0;
-              transform: rotate(-45deg);
-              transition: 0.5s;
-            }
-
-            @media screen and (max-width: 786px) {
-              .logo {
-                width: 35%;
-              }
-              .menu {
-                width: 10%;
-              }
-            }
-            section {
-                width:100%;
-                height: 85vh;
-                position: relative;
-            }
-            div.a1 {
-                background-color: white;
-                width: 20vw;
-                height: 60vh;
-                border-radius: 10%;
-
-                position:absolute;
-
-
-                /* transform: translate(-50% -50%); */
-
-
-            }
-            div.profile img {
-                width: 80px;
-                height: 80px;
-
-
-            }
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+      * {
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 2vh;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        background-image: url("로고/BG-V2_2.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      header {
+        opacity: 1;
+        width: 100%;
+        height: 15%;
+      }
+      div.h_container {
+        height: 100%;
+        padding-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo {
+        width: 15.6%;
+        margin: auto;
+      }
+      #menu {
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        margin-top: 1%;
+        margin-right: 3%;
+        display: flex;
+        flex-direction: column;
+      }
+      #menu span {
+        width: 100%;
+        height: 20%;
+        background-color: white;
+        display: inline-block;
+        right: 0;
+        position: absolute;
+        transition: 0.5s;
+        border-radius: 10px;
+      }
+      #menu span.top {
+        top: 10px;
+      }
+      #menu span.bot {
+        top: 20px;
+      }
+      #menu.active span.top {
+        top: 0;
+        transform: rotate(45deg);
+        transition: 0.5s;
+      }
+      #menu.active span.mid {
+        background-color: transparent;
+      }
+      #menu.active span.bot {
+        top: 0;
+        transform: rotate(-45deg);
+        transition: 0.5s;
+      }
+      @media screen and (max-width: 786px) {
+        .logo {
+          width: 35%;
+        }
+        .menu {
+          width: 10%;
+        }
+      }
+      section.a {
+        width: 100%;
+        height: 85vh;
+        position: relative;
+      }
+      section.a div {
+        font-size: 1.8vw;
+      }
+      div.a1 {
+        background-color: white;
+        width: 30vw;
+        height: 58vh;
+        border-radius: 10%;
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        /* transform: translate(-50% -50%); */
+      }
+      div.profile img {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 3%;
+        left: 30%;
+      }
+      div.proname {
+        position: absolute;
+        top: 8%;
+        left: 48%;
+      }
+      div.id {
+        position: absolute;
+        top: 28%;
+        left: 15%;
+      }
+      div.id input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.pw {
+        position: absolute;
+        top: 39%;
+        left: 15%;
+      }
+      div.pw input {
+        background-color: gainsboro;
+        width: 279px;
+      }
+      div.nick {
+        position: absolute;
+        top: 50%;
+        left: 15%;
+      }
+      div.nick input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.email {
+        position: absolute;
+        top: 61%;
+        left: 15%;
+      }
+      div.email input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.infos button {
+        border-radius: 25px;
+        width: 7vw;
+        height: 4vh;
+        position: absolute;
+        top: 80%;
+        left: 42%;
+        background-color: gray;
+        color: white;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      div.pws button {
+        border-radius: 25px;
+        width: 7vw;
+        height: 4vh;
+        position: absolute;
+        top: 80%;
+        left: 70%;
+        background-color: gray;
+        color: white;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      section.b {
+        width: 30vw;
+        height: 30vh;
+        background-color: gray;
+        position: absolute;
+        top: 43%;
+        left: 35%;
+      }
+      main.new_page div {
+        font-size: 1.8vh;
+      }
+      div.pw_title {
+        position: absolute;
+        top: 8%;
+        left: 35%;
+      }
+      div.now_pw {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+      }
+      div.now_pw input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.new_pw {
+        position: absolute;
+        top: 45%;
+        left: 5%;
+      }
+      div.new_pw input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.ag_pw {
+        position: absolute;
+        top: 65%;
+        left: 5%;
+      }
+      div.ag_pw input {
+        background-color: gainsboro;
+        width: 300px;
+      }
+      div.pw_ok button {
+        position: absolute;
+        top: 80%;
+        left: 47%;
+        border-radius: 25px;
+        background-color: gray;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        width: 7vw;
+        height: 4vh;
+      }
+      div.quit button {
+        position: absolute;
+        top: 80%;
+        left: 75%;
+        border-radius: 25px;
+        background-color: gray;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        width: 7vw;
+        height: 4vh;
+      }
     </style>
   </head>
   <body>
@@ -136,14 +254,15 @@
         </div>
       </div>
     </header>
-    <section>
+    <section class="a">
       <div class="a1">
         <div class="profile">
           <img src="로고/profile.svg" />
         </div>
         <div class="proname">
-          <h2>회원님</h2>
+          <h2>aaaa4142</h2>
         </div>
+        <p class="bt"></p>
         <div class="id">
           <p>아 이 디 <input type="text" placeholder="ex) aaaa4142" /></p>
         </div>
@@ -162,9 +281,49 @@
           <button>정보 수정</button>
         </div>
         <div class="pws">
-          <button>비밀번호 변경</button>
+          <button>
+            <!--
+               <a href="URL" onclick="window.open(this.href, '_blank', 'width=800px,height=400px,toolbars=no,scrollbars=no'); return false;">
+             -->
+            비밀번호 변경
+          </button>
         </div>
       </div>
     </section>
+    <section class="b">
+      <div class="main_newpage">
+        <div class="pw_title">
+          <h2>비밀번호 수정</h2>
+        </div>
+        <div class="now_pw">
+          <p>현재 비밀번호 <input type="text" placeholder="입력하세요" /></p>
+        </div>
+        <div class="new_pw">
+          <p>변경 비밀번호 <input type="password" placeholder="********" /></p>
+        </div>
+        <div class="ag_pw">
+          <p>비밀번호 확인 <input type="password" placeholder="********" /></p>
+        </div>
+        <div class="pw_ok">
+          <button>변경하기</button>
+        </div>
+      </div>
+      <div class="quit">
+        <button>취소</button>
+      </div>
+    </section>
   </body>
+  <script>
+    let menu = document.getElementById("menu");
+    let flag = false;
+    menu.addEventListener("click", function () {
+      if (!flag) {
+        menu.classList.add("active");
+        flag = true;
+      } else {
+        menu.classList.remove("active");
+        flag = false;
+      }
+    });
+  </script>
 </html>

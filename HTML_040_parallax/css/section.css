@@ -54,7 +54,7 @@ article#art5 {
 article#art6 {
   background: url("../image/images_3.jpg");
 }
-@media screen and(max-width : 800px) {
+/* @media screen and(max-width : 800px) {
   section#contents {
     font-size: 30px;
   }
@@ -63,4 +63,4 @@ article#art6 {
   section#contents {
     font-size: 15px;
   }
-}
+} */
