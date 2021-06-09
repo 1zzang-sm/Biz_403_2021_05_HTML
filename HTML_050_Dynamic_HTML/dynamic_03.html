@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic HTML</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 80%;
+        margin: 10px auto;
+      }
+      table td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    const doc = document;
+
+    // 2차원 배열 [][]
+    const datas = [
+      ["이름", "전화번호", "주소"],
+      ["홍길동", "010-111", "서울시"],
+      ["성춘향", "010-222", "익산시"],
+      ["이몽량", "010-333", "남원시"],
+    ];
+    let table = doc.createElement("table");
+
+    // 바깥쪽 배열만큼 반복
+    // tr개수만큼 반복하기
+    for (let i = 0; i < datas.length; i++) {
+      // row 개수만큼 tr을 반복생성
+      let tr = doc.createElement("tr");
+
+      // 안쪽 배열만큼 반복
+      for (let j = 0; j < datas[i].length; j++) {
+        // 배열 개수만큼 td를 반복생성하면서
+        let td = doc.createElement("td");
+        // 각 배열의 요소에 저장된 문자열을 setting
+        td.innerHTML = datas[i][j];
+        // 세팅된 애들을 tr에 추가
+        tr.appendChild(td);
+      }
+      // 생성된 tr을 table에 추가
+      table.appendChild(tr);
+    }
+    // 생성된 table을 body에 추가
+    doc.querySelector("body").appendChild(table);
+  </script>
+</html>
