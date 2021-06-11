@@ -4,26 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title></title>
     <style>
       @import url("[https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap)");
+
       * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
       }
+
       html,
       body {
         width: 100vw;
         height: 100vh;
       }
+
       body {
         background-image: url("로고/BG-V2_1.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
-        font-size: 2vh;
+        
       }
       header {
         opacity: 1;
@@ -158,7 +160,6 @@
       }
 
       /* 회원가입 css */
-
       #sign_container {
         position: absolute;
         width: 50%;
@@ -301,80 +302,107 @@
           width: 10%;
         }
       }
-      section.b_conatiner {
-        width: 100%;
-        height: 85%;
-        margin: 2.5% auto;
-      }
-      div.con_1 {
-        width: 50%;
-        height: 40%;
-        margin: 0 25%;
-      }
-      div.insert_bubble {
-        font-family: "c24SA";
-        background-image: url("로고/bubble_white.svg");
-        background-size: 100% auto;
-        width: 100%;
-        height: 80%;
-        background-repeat: no-repeat;
-        align-content: center;
-        padding: 4%;
-      }
-      div.b_insert {
+      #b_container {
         position: relative;
         width: 100%;
-        height: 80%;
+        height: 85%;
+        perspective: 1500px;
+        transition: all 1s;
       }
-      .input input {
-        background-color: transparent;
+      #b_container.active{
+        transform:translateZ(-500px);
+      }
+      #b_container.active2{
+        transform:translateZ(-1500px) scale(0);
+        transform-origin: 50% 0%;
+      }
+      
+      #b2_con {
+        width: 100%;
+        height: 85vh;
+        position: relative;
+
+        transition: all 1s;
+        /* animation: move 1s; */
+      }
+  
+ 
+      /* @keyframes move {
+              100% {
+                transform: translateZ(-500px);
+              }
+            } */
+
+      #grid{
+        display: grid;
         position: absolute;
-        top: 15%;
-        left: 17%;
-        border: none;
-        width: 70%;
-        height: 20%;
+        top:7%;
+        left:34%;
         z-index: 1;
-        text-align: center;
-        font-size: 24;
-        outline: none;
-        border-bottom: 1px solid gray;
+        justify-items: center;
+        align-items: center;
+        grid-template-rows: 1fr 1fr 1fr;
       }
-      .input2 input {
-        background-color: transparent;
-        position: absolute;
-        top: 32%;
-        left: 12%;
-        border: none;
-        width: 70%;
+      #coment{
+        color: steelblue;
+      }
+      #imgntext {
+        
+        top:0;
+        left:26%;
+        width: 52%;
         height: 30%;
-        z-index: 1;
-        text-align: center;
-        font-size: 24;
-        outline: none;
-      }
-      div.insert_people {
-        width: 40%;
-        height: 25%;
-        background-repeat: no-repeat;
-        background-image: url("resources/person.png");
-        background-size: 100% auto;
         margin: auto;
+        padding: 70px;
+        
+       }
+     .img0 {
+     
+      font-size:2vh;
+      background-color:white; 
+      outline: none; 
+      border: 0;
+      text-align: center;
+     }
+      
+      #text1 {
+        top:40%;
+        left:20%;
+        border-bottom: 3px solid black;        
+        width:32vw;
+        height: 12vh;
       }
+      #text2 {
+        top:90%;
+        left:10%;
+        width:25vw;
+        height: 10vh;
+      }
+ 
+      #bottom {background-image: url("로고/person-01.svg");
+       background-repeat:no-repeat;
+        position: absolute;
+        left: 40%;
+        top: 80%;
+        width: 25%;
+        height: 20%;
+        margin: auto;
+        padding: 1px;
+      }
+
+
     </style>
   </head>
   <body>
-    <!-- <div class="wrap"> -->
-    <header>
-     <!--  헤더 부분 -->
+    <!--  헤더 부분 -->
     <header>
       <div class="h_container">
         <img class="logo" src="로고/logo-white.svg" />
         <nav>
           <ul id="menu">
             <li class="items item1" id="mypage">
-              <img class="menuimg" src="로고/profile.svg" />
-              <span>익명000님</span>
+              <img class="menuimg" src="로고/profile.png" />
+              익명000님
             </li>
             <li class="items item2" id="insert">
               <span>하루 생각 입력하기</span>
@@ -392,7 +420,7 @@
               <span>회원가입</span>
             </li>
             <li class="items item7" id="login">
-              <span>로그인</span> 
+              <span>로그인</span>
             </li>
           </ul>
           <div id="button">
@@ -408,7 +436,7 @@
         <div class="sign2">
           <div class="sub create front main">
             <h4 class="items2">회원가입</h4>
-            <button id="ok" class="items2" >가입하기</button>
+            <button id="ok" class="items2">가입하기</button>
           </div>
           <div class="sub join front">
             <h4 class="items2">하루생각 로그인</h4>
@@ -417,7 +445,7 @@
             <input class="items2" type="password" placeholder="Password" />
             <div class="items2">비밀번호를 잊어버리셨나요?</div>
             <button class="items2 btn">로그인</button>
-            <div class="exit exit1" >
+            <div class="exit exit1">
               <span class="right"></span>
               <span class="left"></span>
             </div>
@@ -438,8 +466,8 @@
           </div>
           <div class="sub join back main">
             <h4 class="items3">Welcome Back</h4>
-            <button id="ok2" class="items3" >로그인</button>
-            <div class="exit exit2" >
+            <button id="ok2" class="items3">로그인</button>
+            <div class="exit exit2">
               <span class="right"></span>
               <span class="left"></span>
             </div>
@@ -449,41 +477,163 @@
       <!-- 회원가입 로그인 컨테이너 끝-->
     </header>
     <!-- 헤더 끝-->
-    <section class="b_container">
-      <div class="con_1">
-        <div class="b_insert">
-          <div class="insert_bubble">
-            <img src="로고/bubble_white.svg" alt="" />
-          </div>
-          <div class="input">
-            <input
-              type="text"
-              placeholder="내용을 입력하세요&#13;&#10; 단, 내용은 200자 안으로 작성해야합니다"
-            />
-          </div>
-          <div class="input2">
-            <input
-              type="text"
-              placeholder="출처를 입력하세요. &#13;&#10;미 입력시 본인 닉네임 자동입력"
-            />
-          </div>
-          <div class="insert_people"><img src="로고/person-01.svg" /></div>
+    <div id="b_container">
+      <section id="b2_con">
+        
+        <div id="imgntext">
+          <img src="로고/bubble_white.svg" alt="">
+          <div id="grid">
+          <div id="coment"><h3>"익명"님의 이름으로 하루생각을 보냅니다.</h3></div>
+          <div><input type="text" id="text1" class="img0" placeholder="글을 입력하세요"/></div>
+          <div><input type="text" id="text2" class="img0" placeholder="출처를 입력하세요"/></div>
         </div>
-      </div>
-    </section>
-    <!--  -->
-    <div class="box"></div>
+          </div>
+        </div>
+        <div id="bottom">
+         
+        </div>
+      </section>
+    </div>
   </body>
   <script>
-    let menu = document.getElementById("menu");
-    let flag = false;
-    menu.addEventListener("click", function () {
-      if (!flag) {
-        menu.classList.add("active");
-        flag = true;
-      } else {
-        menu.classList.remove("active");
-        flag = false;
+    document.addEventListener("DOMContentLoaded", () => {
+      let url = "/mind";
+
+      let button = document.getElementById("button");
+      let menu = document.getElementById("menu");
+      let li = document.getElementsByClassName("items");
+      let sign = document.getElementsByClassName("items2");
+      let sign2 = document.getElementsByClassName("items3");
+      let b_con = document.getElementById("b_container");
+      let flag = false;
+      let s_con = document.querySelector("#sign_container");
+      let front = document.querySelectorAll("div.front");
+      let back = document.querySelectorAll("div.back");
+      let menuSign = document.getElementById("signup");
+      let menuJoin = document.getElementById("join");
+      let cancel = document.querySelectorAll("div.exit");
+      let signChange1 = document.querySelector("#ok");
+      let signChange2 = document.querySelector("#ok2");
+
+      // 아영
+      let main_bubble = document.querySelector(".main_bubble");
+
+      document.querySelector("img.logo").addEventListener("click", (ev) => {
+        document.location.href = url + "/main";
+      });
+
+      document.querySelector("#menu").addEventListener("click", (ev) => {
+        let getId = ev.target.closest("li").id;
+        if (getId === "ilike") {
+          url += "/list/ilike";
+        } else if (getId === "iwrite") {
+          url += "/list/iwrite";
+        } else if (getId === "mypage") {
+          url += "/member/mypage";
+        } else if (getId === "insert") {
+          url += "/insert";
+        } else if (getId === "bestlist") {
+          url += "/list/bestlist";
+        } else if (getId === "join") {
+          if (b_con) {
+            b_con.classList.add("active2");
+          }
+          // 아영
+          if (main_bubble) {
+            main_bubble.classList.add("active2");
+          }
+          s_con.style.display = "block";
+
+          for (let i = 0; i < back.length; i++) {
+            front[i].style.display = "none";
+            back[i].style.display = "grid";
+          }
+          return;
+        } else if (getId === "login") {
+          if (b_con) {
+            b_con.classList.add("active2");
+          }
+          // 아영
+          if (main_bubble) {
+            main_bubble.classList.add("active2");
+          }
+          s_con.style.display = "block";
+          for (let i = 0; i < back.length; i++) {
+            back[i].style.display = "none";
+            front[i].style.display = "grid";
+          }
+          return;
+        }
+
+        document.location.href = url;
+      });
+
+      button.addEventListener("click", function () {
+        if (!flag) {
+          button.classList.add("active");
+          menu.classList.add("active");
+          for (let i = 0; i < li.length; i++) {
+            li[i].style.animation = "bounce-in 1s " + i * 0.04 + "s ease-out";
+          }
+          for (let i = 0; i < sign.length; i++) {
+            sign[i].style.animation = "bounce-in 1s " + i * 0.04 + "s ease-out";
+          }
+          for (let i = 0; i < sign2.length; i++) {
+            sign2[i].style.animation =
+              "bounce-in 1s " + i * 0.04 + "s ease-out";
+          }
+
+          if (b_con) {
+            b_con.classList.add("active");
+          }
+          // 아영
+          if (main_bubble) {
+            main_bubble.classList.add("active");
+          }
+          flag = true;
+        } else {
+          button.classList.remove("active");
+          menu.classList.remove("active");
+          for (let i = 0; i < li.length; i++) {
+            li[i].style.animation = "";
+          }
+          if (b_con) {
+            b_con.classList.remove("active");
+          }
+          // 아영
+          if (main_bubble) {
+            main_bubble.classList.remove("active");
+          }
+          flag = false;
+        }
+      });
+
+      /* 회원가입 코드 새로 추가 */
+
+      signChange1.addEventListener("click", () => {
+        for (let i = 0; i < back.length; i++) {
+          front[i].style.display = "none";
+          back[i].style.display = "grid";
+        }
+      });
+      signChange2.addEventListener("click", () => {
+        for (let i = 0; i < back.length; i++) {
+          back[i].style.display = "none";
+          front[i].style.display = "grid";
+        }
+      });
+
+      for (let i = 0; i < cancel.length; i++) {
+        cancel[i].addEventListener("click", function () {
+          s_con.style.display = "none";
+          if (b_con) {
+            b_con.classList.remove("active2");
+          }
+          // 아영
+          if (main_bubble) {
+            main_bubble.classList.remove("active2");
+          }
+        });
       }
     });
   </script>

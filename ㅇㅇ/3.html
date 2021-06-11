@@ -8,8 +8,6 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
       * {
-        font-family: "Noto Sans KR", sans-serif;
-        font-size: 2vh;
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -20,10 +18,11 @@
         height: 100vh;
       }
       body {
-        background-image: url("로고/BG-V2_2.png");
+        background-image: url("로고/BG-V2_1.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
+        font-size: 2vh;
       }
       header {
         opacity: 1;
@@ -88,14 +87,32 @@
           width: 10%;
         }
       }
+      div.b_container {
+        width: 100%;
+        height: 85%;
+        perspective: 1500px;
+      }
       section.a {
         width: 100%;
         height: 85vh;
         position: relative;
+
+        transition: all 1s;
+        /* animation: move 1s; */
       }
-      section.a div {
-        font-size: 1.8vw;
+      section.a.active {
+        transform: translateZ(-500px);
       }
+      section.a.active2 {
+        transform: translateZ(-1500px) scale(0);
+        transform-origin: 50% 0%;
+      }
+      /* @keyframes move {
+        100% {
+          transform: translateZ(-500px);
+        }
+      } */
+
       div.a1 {
         background-color: white;
         width: 30vw;
@@ -104,7 +121,7 @@
         position: absolute;
         top: 20%;
         left: 35%;
-        /* transform: translate(-50% -50%); */
+        transform: translate(-50% -50%);
       }
       div.profile img {
         width: 80px;
@@ -118,79 +135,132 @@
         top: 8%;
         left: 48%;
       }
-      div.id {
+      div input {
+        text-align: center;
+      }
+      div.id p {
         position: absolute;
         top: 28%;
-        left: 15%;
+        left: 10%;
       }
-      div.id input {
-        background-color: gainsboro;
+      #id_input {
+        position: absolute;
+        top: 28%;
+        left: 29%;
+        border: 0;
+        border-bottom: 1px solid black;
+
         width: 300px;
+        outline: none;
+        border-radius: 8px;
+      }
+      div#id_input:hover {
+        background-color: steelblue;
       }
       div.pw {
         position: absolute;
-        top: 39%;
-        left: 15%;
+        top: 41%;
+        left: 10%;
       }
-      div.pw input {
-        background-color: gainsboro;
-        width: 279px;
+      #pw_input {
+        position: absolute;
+        top: 4%;
+        left: 117%;
+        border: 0;
+        border-bottom: 1px solid black;
+
+        width: 300px;
+        border-radius: 8px;
+        outline: none;
       }
       div.nick {
         position: absolute;
-        top: 50%;
-        left: 15%;
+        top: 54%;
+        left: 10%;
       }
-      div.nick input {
-        background-color: gainsboro;
+      #nick_input {
+        position: absolute;
+        top: 4%;
+        left: 160%;
+        border: 0;
+        border-bottom: 1px solid black;
+
         width: 300px;
+        border-radius: 8px;
+        outline: none;
       }
       div.email {
         position: absolute;
-        top: 61%;
-        left: 15%;
+        top: 67%;
+        left: 10%;
       }
-      div.email input {
-        background-color: gainsboro;
+      #email_input {
+        position: absolute;
+        top: 4%;
+        left: 160%;
+        border: 0;
+        border-bottom: 1px solid black;
+
         width: 300px;
+        border-radius: 8px;
+        outline: none;
       }
       div.infos button {
+        border: skyblue;
         border-radius: 25px;
         width: 7vw;
         height: 4vh;
         position: absolute;
         top: 80%;
         left: 42%;
-        background-color: gray;
+        background-color: skyblue;
         color: white;
-        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
         cursor: pointer;
       }
+      div.infos button:hover {
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+      }
       div.pws button {
+        border: skyblue;
         border-radius: 25px;
         width: 7vw;
         height: 4vh;
         position: absolute;
         top: 80%;
         left: 70%;
-        background-color: gray;
+        background-color: skyblue;
         color: white;
-        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
         cursor: pointer;
       }
+      div.pws button:hover {
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+      }
       section.b {
-        width: 30vw;
-        height: 30vh;
-        background-color: gray;
+        border-radius: 15px;
+        width: 35vw;
+        height: 40vh;
+        background-color: white;
         position: absolute;
-        top: 43%;
-        left: 35%;
+        top: 30%;
+        left: 32.5%;
         display: none;
+        font-size: 2vh;
+        animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      }
+      @keyframes unfoldIn {
+        0% {
+          transform: scaleX(0) scaleY(0.005);
+        }
+        50% {
+          transform: scaleX(1) scaleY(0.005);
+        }
+        100% {
+          transform: scaleY(1) scaleX(1);
+        }
       }
       main.new_page div {
         font-size: 1.8vh;
       }
-
       div.pw_title {
         position: absolute;
         top: 8%;
@@ -201,47 +271,68 @@
         top: 25%;
         left: 5%;
       }
-      div.now_pw input {
-        background-color: gainsboro;
+      #now_input {
+        position: absolute;
+        top: 8%;
+        left: 130%;
+        border: 0;
+        border-bottom: 1px solid black;
         width: 300px;
+        outline: none;
       }
       div.new_pw {
         position: absolute;
         top: 45%;
         left: 5%;
       }
-      div.new_pw input {
-        background-color: gainsboro;
+      #new_input {
+        position: absolute;
+        top: 3%;
+        left: 130%;
+        border: 0;
+        border-bottom: 1px solid black;
         width: 300px;
+        outline: none;
       }
       div.ag_pw {
         position: absolute;
         top: 65%;
         left: 5%;
       }
-      div.ag_pw input {
-        background-color: gainsboro;
+      #ag_input {
+        position: absolute;
+        top: 3%;
+        left: 130%;
+        border: 0;
+        border-bottom: 1px solid black;
         width: 300px;
+        outline: none;
       }
       div.pw_ok button {
         position: absolute;
         top: 80%;
         left: 47%;
         border-radius: 25px;
-        background-color: gray;
-        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        background-color: skyblue;
+        border: 0;
         width: 7vw;
         height: 4vh;
+      }
+      div.pw_ok button:hover {
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
       }
       div.quit button {
         position: absolute;
         top: 80%;
         left: 75%;
         border-radius: 25px;
-        background-color: gray;
-        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+        background-color: skyblue;
+        border: 0;
         width: 7vw;
         height: 4vh;
+      }
+      div.quit button:hover {
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
       }
     </style>
   </head>
@@ -256,64 +347,104 @@
         </div>
       </div>
     </header>
-    <section class="a">
-      <div class="a1">
-        <div class="profile">
-          <img src="로고/profile.svg" />
+    <div class="b_container">
+      <section class="a">
+        <div class="a1">
+          <div class="profile">
+            <img src="로고/profile.svg" />
+          </div>
+          <div class="proname">
+            <h2>익명000님</h2>
+          </div>
+          <p class="bt"></p>
+          <div class="id">
+            <p>아 이 디</p>
+            <div>
+              <input
+                type="text"
+                id="id_input"
+                placeholder="아이디를 입력하세요"
+              />
+            </div>
+          </div>
+          <div class="pw">
+            <p>비 밀 번 호</p>
+            <div>
+              <input
+                type="password"
+                id="pw_input"
+                placeholder="패스워드를 입력하세요"
+              />
+            </div>
+          </div>
+          <div class="nick">
+            <p>닉 네 임</p>
+            <div>
+              <input
+                type="text"
+                id="nick_input"
+                placeholder="닉네임을 입력하세요"
+              />
+            </div>
+          </div>
+          <div class="email">
+            <p>이 메 일</p>
+            <div>
+              <input
+                type="email"
+                id="email_input"
+                placeholder="이메일을 입력하세요"
+              />
+            </div>
+          </div>
+          <div class="infos">
+            <button>정보 수정</button>
+          </div>
+          <div class="pws">
+            <button type="button" id="modal_btn">비밀번호 변경</button>
+          </div>
         </div>
-        <div class="proname">
-          <h2>aaaa4142</h2>
+      </section>
+      <section class="b">
+        <div class="main_newpage">
+          <div class="pw_title">
+            <h2>비밀번호 수정</h2>
+          </div>
+          <div class="now_pw">
+            <p>현재 비밀번호</p>
+            <div>
+              <input type="text" id="now_input" placeholder="입력하세요" />
+            </div>
+          </div>
+          <div class="new_pw">
+            <p>변경 비밀번호</p>
+            <div>
+              <input
+                type="password"
+                id="new_input"
+                placeholder="변경할 비밀번호"
+              />
+            </div>
+          </div>
+          <div class="ag_pw">
+            <p>비밀번호 확인</p>
+            <div>
+              <input
+                type="password"
+                id="ag_input"
+                placeholder="비밀번호 다시입력"
+              />
+            </div>
+          </div>
+          <div class="pw_ok">
+            <button>변경하기</button>
+          </div>
         </div>
-        <p class="bt"></p>
-        <div class="id">
-          <p>아 이 디 <input type="text" placeholder="ex) aaaa4142" /></p>
+        <div class="quit">
+          <button id="modal_x">취소</button>
         </div>
-        <div class="pw">
-          <p>비 밀 번 호 <input type="password" placeholder="ex) *******" /></p>
-        </div>
-        <div class="nick">
-          <p>닉 네 임 <input type="text" placeholder="ex) 홍 길 동" /></p>
-        </div>
-        <div class="email">
-          <p>
-            이 메 일 <input type="email" placeholder="ex) aaaa4142@daum.net" />
-          </p>
-        </div>
-        <div class="infos">
-          <button>정보 수정</button>
-        </div>
-        <div class="pws">
-          <button>
-            <!--
-               <a href="URL" onclick="window.open(this.href, '_blank', 'width=800px,height=400px,toolbars=no,scrollbars=no'); return false;">
-             -->
-            비밀번호 변경
-          </button>
-        </div>
-      </div>
-    </section>
-    <section class="b">
-      <div class="main_newpage">
-        <div class="pw_title">
-          <h2>비밀번호 수정</h2>
-        </div>
-        <div class="now_pw">
-          <p>현재 비밀번호 <input type="text" placeholder="입력하세요" /></p>
-        </div>
-        <div class="new_pw">
-          <p>변경 비밀번호 <input type="password" placeholder="********" /></p>
-        </div>
-        <div class="ag_pw">
-          <p>비밀번호 확인 <input type="password" placeholder="********" /></p>
-        </div>
-        <div class="pw_ok">
-          <button>변경하기</button>
-        </div>
-      </div>
-      <div class="quit">
-        <button>취소</button>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
   <script>
     let menu = document.getElementById("menu");
@@ -328,9 +459,25 @@
       }
     });
 
-    const btnModal = document.getElementsByClassName("pws");
-    btnModal.addEventListener("click", (e) => {
-      modal.style.display = "flex";
-    });
+    window.onload = function () {
+      function onClick() {
+        document.querySelector(".b").style.display = "block";
+        document.querySelector(".main_newpage").style.display = "block";
+        document.querySelector("header").style.opacity = "0.3";
+        document.querySelector("section.a").style.opacity = "0.3";
+        document.querySelector("section.a").classList.add("active");
+      }
+
+      function offClick() {
+        document.querySelector(".b").style.display = "none";
+        document.querySelector(".main_newpage").style.display = "none";
+        document.querySelector("header").style.opacity = "1";
+        document.querySelector("section.a").style.opacity = "1";
+        document.querySelector("section.a").classList.remove("active");
+      }
+
+      document.getElementById("modal_btn").addEventListener("click", onClick);
+      document.getElementById("modal_x").addEventListener("click", offClick);
+    };
   </script>
 </html>
