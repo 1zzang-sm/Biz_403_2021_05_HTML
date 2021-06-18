@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title></title>
+<style>
+
+/* 가장 큰 틀 */
+#b_container {
+position: relative;
+width: 100%;
+height: 85%;
+perspective: 1500px;
+transition: all 1s;
+}
+/* 활동1 */
+#b_container.active{
+transform:translateZ(-500px);
+}
+/* 활동2 */
+#b_container.active2{
+transform:translateZ(-1500px) scale(0);
+transform-origin: 50% 0%;
+}
+/* b_container 다음 큰 틀 */
+#b2_con {
+width: 100%;
+height: 85vh;
+position: relative;
+transition: all 1s;
+ /* animation: move 1s; */
+}
+ /*@keyframes move {
+100% {
+transform: translateZ(-500px);
+}
+} */
+/* 버블박스 안에 내용들을 정리할 틀 */
+#grid{
+display: grid;
+position: absolute;
+top:7%;
+left:35%;
+z-index: 1;
+justify-items: center;
+align-items: center;
+grid-template-rows: 1fr 1fr 1fr;
+}
+#coment{
+color: steelblue;
+}
+/* b2_con 다음으로 큰 틀 */
+#imgntext {
+top:0;
+left:29%;
+width: 52%;
+height: 30%;
+margin: auto;
+padding: 70px;
+}
+/* 인풋 2개 같은 클래스이름 */
+.img0 {
+font-size:2vh;
+background-color:white;
+outline: none;
+border: 0;
+text-align: center;
+}
+/* 인풋1 */
+#text1 {
+border-bottom: 3px solid black;
+width:30vw;
+height: 12vh;
+}
+/* 인풋2 */
+#text2 {
+width:23vw;
+height: 10vh;
+}
+/* 아래 사람이미지 */
+#bottom {background-image: url("image/person-01.svg");
+background-repeat:no-repeat;
+position: absolute;
+left: 40%;
+top: 80%;
+width: 25%;
+height: 20%;
+margin: auto;
+padding: 1px;
+}
+</style>
+</head>
+<body>
+
+<div id="b_container">
+<section id="b2_con">
+<div id="imgntext">
+<img src="image/bubble_white.svg" alt="">
+<div id="grid">
+<div id="coment"><h3>"익명"님의 이름으로 하루생각을 보냅니다.</h3></div>
+<div><input type="text" id="text1" class="img0" placeholder="글을 입력하세요"/></div>
+<div><input type="text" id="text2" class="img0" placeholder="출처를 입력하세요"/></div>
+</div>
+</div>
+</div>
+<div id="bottom">
+</div>
+</section>
+</div>
+</body>
+<script>
+
+</script>
+</html>

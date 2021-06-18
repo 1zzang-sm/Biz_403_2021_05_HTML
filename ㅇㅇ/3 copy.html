@@ -6,87 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html,
-      body {
-        width: 100vw;
-        height: 100vh;
-      }
-      body {
-        background-image: url("image/BG-V2_1.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-        font-size: 2vh;
-      }
-      header {
-        opacity: 1;
-        width: 100%;
-        height: 15%;
-      }
-      div.h_container {
-        height: 100%;
-        padding-top: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .logo {
-        width: 15.6%;
-        margin: auto;
-      }
-      #menu {
-        position: absolute;
-        right: 0;
-        width: 30px;
-        height: 30px;
-        margin-top: 1%;
-        margin-right: 3%;
-        display: flex;
-        flex-direction: column;
-      }
-      #menu span {
-        width: 100%;
-        height: 20%;
-        background-color: white;
-        display: inline-block;
-        right: 0;
-        position: absolute;
-        transition: 0.5s;
-        border-radius: 10px;
-      }
-      #menu span.top {
-        top: 10px;
-      }
-      #menu span.bot {
-        top: 20px;
-      }
-      #menu.active span.top {
-        top: 0;
-        transform: rotate(45deg);
-        transition: 0.5s;
-      }
-      #menu.active span.mid {
-        background-color: transparent;
-      }
-      #menu.active span.bot {
-        top: 0;
-        transform: rotate(-45deg);
-        transition: 0.5s;
-      }
-      @media screen and (max-width: 786px) {
-        .logo {
-          width: 35%;
-        }
-        .menu {
-          width: 10%;
-        }
-      }
       div.b_container {
         width: 100%;
         height: 85%;
@@ -97,7 +16,6 @@
         height: 85vh;
         position: relative;
         transition: all 1s;
-
         /* animation: move 1s; /
 }
 section.a.active {
@@ -340,16 +258,6 @@ transform: translateZ(-500px);
     </style>
   </head>
   <body>
-    <header>
-      <div class="h_container">
-        <img class="logo" src="image/logo-original.svg" />
-        <div id="menu">
-          <span class="top"></span>
-          <span class="mid"></span>
-          <span class="bot"></span>
-        </div>
-      </div>
-    </header>
     <div class="b_container">
       <section class="a">
         <div class="a1">
